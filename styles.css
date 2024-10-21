@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.start{
+    height: 40px;
+    width: fit-content;
+}
