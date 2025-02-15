@@ -7,11 +7,41 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main">
-      <h1>Let's Play Rock, Paper & Scissors</h1>
-      <button class="start" onclick="game()">Start Game!</button>
+      <h1 class="title">Let's Play Rock, Paper & Scissors</h1>
+      <h2 class="matchwinner"></h2>
+      <div class="reset-button">
+      <button class="reset">Start Again?</button>
+      </div>
+      <h2 class="drawscore-heading">Draw: 0 </h2>
+      
       <h2 id="result"></h2>
+
+      <div class="playeritems">
+      <div class="player-result">
+      <h2 class="playerchose">You Chose: </h2>
+      <h2 class="playerscore-heading">Player Score: 0 </h2>
+      </div>
+
+      <div id="player-options">
+        <img src="images/rock.png" id="rock" alt="rock" height="100px" width="100px" draggable="false">
+        <img src="images/paper.png" id="paper" height="100px" width="100px" draggable="false">
+        <img src="images/scissors.png" id="scissors" height="100px" width="100px" draggable="false">
+      </div>
+    </div>
+      
+    <div class="compitems">
+      <div class="compresult">
+      <h2 class="compchose">Computer chose:</h2>
+      <h2 class="compscore-heading">Computer Score: 0 </h2>
+    </div>
+
+      <div id="computer-options">
+        <img src="images/rock.png" alt="rock" height="100px" width="100px" draggable="false">
+        <img src="images/paper.png" height="100px" width="100px" draggable="false">
+        <img src="images/scissors.png" height="100px" width="100px" draggable="false">
+      </div>
     </div>
   </body>
   <script src="script.js"></script>
 </html>
+
