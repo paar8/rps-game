@@ -19,6 +19,7 @@ function resetGame(){
   document.querySelector(".compscore-heading").textContent = `Computer Score: 0`;
   document.querySelector(".drawscore-heading").textContent = `Draw: 0`;
   document.querySelector(".compchose").textContent =`Computer chose: 0`;
+  document.getElementById("result").textContent = "";
   playerScore = 0;
   compScore = 0;
   drawScore = 0;
