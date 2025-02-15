@@ -4,6 +4,7 @@ let userChoice = "";
 let playerScore = 0;
 let compScore = 0;
 let drawScore = 0;
+let gameSense = false;
 
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
@@ -13,6 +14,7 @@ const resetButton = document.querySelector(".reset");
 resetButton.addEventListener("click", () => resetGame());
 
 function resetGame(){
+  gameSense = false;
   document.querySelector(".playerscore-heading").textContent = `Player Score: 0`;
   document.querySelector(".compscore-heading").textContent = `Computer Score: 0`;
   document.querySelector(".drawscore-heading").textContent = `Draw: 0`;
@@ -43,6 +45,8 @@ function playerChoice(event) {
 }
 
 function playRound() {
+  if (gameSense) return;
+
   const playerSelection = userChoice;
   const computerSelection = computerChoice();
   document.querySelector(".compchose").textContent =`Computer chose: ${computerSelection}`;
@@ -51,7 +55,7 @@ function playRound() {
   // console.log(winner);
   document.getElementById("result").textContent = winner;
   winner2.push(winner);
-  if (winner === "Player Wins!") {
+  if (winner === "You Win!") {
     playerScore++;
   } else if (winner === "Computer Wins!") {
     compScore++;
@@ -73,7 +77,7 @@ function checkWinner(choiceP, choiceC) {
     (choiceP === "scissors" && choiceC === "paper") ||
     (choiceP === "paper" && choiceC === "rock")
   )
-    return "Player Wins!";
+    return "You Win!";
   else {
     return "Computer Wins!";
   }
@@ -82,12 +86,19 @@ function checkWinner(choiceP, choiceC) {
 function only5rounds(){
   let wins = checkWins();
   if(wins == 5){
+    gameSense = true;
     document.querySelector(".reset").style.display = "inline-block";
+    if(playerScore === 5){
+      document.getElementById("result").textContent = "Comgratulations, You Won!!";
+    }
+    else{
+      document.getElementById("result").textContent = "Computer won the game! Better Luck Next Time!!";
+    }
   }
 }
 
 function checkWins(){
-  const pWinCount = winner2.filter((item)=> item === "Player Wins!").length;
+  const pWinCount = winner2.filter((item)=> item === "You Win!").length;
   const cWinCount = winner2.filter((item) => item === "Computer Wins!").length;
   return Math.max(pWinCount,cWinCount);
 }
